@@ -61,7 +61,7 @@ limitations under the License.
               <th class="kd-replicationcontrollerdetail-table-header">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="status"
-                                  tooltip="Status of the pod">
+                                  tooltip="{{ 'Status of the pod' | translate }}">
                   Status
                 </kd-sorted-header>
               </th>
@@ -69,14 +69,14 @@ limitations under the License.
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder"
                                   column-name="restartCount"
-                                  tooltip="Number of restarts and last restart time of the pod">
+                                  tooltip="{{ 'Number of restarts and last restart time of the pod' | translate }}">
                   Restarts
                 </kd-sorted-header>
               </th>
               <th class="kd-replicationcontrollerdetail-table-header">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="startTime"
-                                  tooltip="Time the pod was last started">
+                                  tooltip="{{ 'Time the pod was last started' | translate }}">
                   Age
                 </kd-sorted-header>
               </th>
@@ -84,7 +84,7 @@ limitations under the License.
                   ng-if="::ctrl.replicationControllerDetail.hasMetrics">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="cpu"
-                                  tooltip="CPU used by the pod">
+                                  tooltip="{{ 'CPU used by the pod' | translate }}">
                   CPU
                 </kd-sorted-header>
               </th>
@@ -92,21 +92,21 @@ limitations under the License.
                   ng-if="::ctrl.replicationControllerDetail.hasMetrics">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="memory"
-                                  tooltip="Memory used by the pod">
+                                  tooltip="{{ 'Memory used by the pod' | translate }}">
                   Memory
                 </kd-sorted-header>
               </th>
               <th class="kd-replicationcontrollerdetail-table-header">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="podIP"
-                                  tooltip="IP adress of the pod in the cluster">
+                                  tooltip="{{ 'IP adress of the pod in the cluster' | translate }}">
                   Cluster IP
                 </kd-sorted-header>
               </th>
               <th class="kd-replicationcontrollerdetail-table-header">
                 <kd-sorted-header currently-selected-column="ctrl.sortPodsBy"
                                   currently-selected-order="ctrl.podsOrder" column-name="nodeName"
-                                  tooltip="Name of the node the pod is running on">
+                                  tooltip="{{ 'Name of the node the pod is running on' | translate }}">
                   Node
                 </kd-sorted-header>
               </th>
@@ -114,7 +114,7 @@ limitations under the License.
                 <span>Logs
                   <i class="material-icons kd-text-icon">
                     help
-                    <md-tooltip>Logs from the pod</md-tooltip>
+                    <md-tooltip>{{ "Logs from the pod" | translate }}</md-tooltip>
                   </i>
                 </span>
               </th>
@@ -175,7 +175,7 @@ limitations under the License.
               <td class="kd-replicationcontrollerdetail-table-cell">
                 <span>
                   <a ng-href="{{::ctrl.getPodLogsHref(pod)}}" target="_blank">
-                    Logs
+                    {{ "View" | translate }}
                     <i class="material-icons kd-text-icon">open_in_new</i>
                   </a>
                 </span>
@@ -272,10 +272,10 @@ limitations under the License.
             <md-icon class="material-icons kd-replicationcontrollerdetail-no-events-icon">
               info_outline
             </md-icon>
-            <div class="kd-replicationcontrollerdetail-no-events-text">No events were found</div>
+            <div class="kd-replicationcontrollerdetail-no-events-text">{{ "No events were found" | translate }}</div>
             <span class="kd-replicationcontrollerdetail-no-events-info">
-              There are no events to display. It's possible that all of them have expired.
-              <a href="">Learn more</a>
+              {{ "There are no events to display. It's possible that all of them have expired" | translate }}.
+              <a href="">{{ "Learn more" | translate }}</a>
             </span>
 	        </div>
       </md-content>

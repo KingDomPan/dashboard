@@ -23,12 +23,12 @@ limitations under the License.
           <md-icon class="material-icons md-warn kd-replicationcontroller-card-status-icon"
                    ng-if="::ctrl.hasWarnings()">
             error
-            <md-tooltip>One or more pods have errors</md-tooltip>
+            <md-tooltip>{{ "One or more pods have errors" | translate }}</md-tooltip>
           </md-icon>
           <md-icon class="material-icons kd-replicationcontroller-card-status-icon"
                    ng-if="::ctrl.isPending()">
             timelapse
-            <md-tooltip>One or more pods are in pending state</md-tooltip>
+            <md-tooltip>{{ "One or more pods are in pending state" | translate }}</md-tooltip>
           </md-icon>
           <a ng-href="{{::ctrl.getReplicationControllerDetailHref()}}"
              class="kd-replicationcontroller-card-name">
@@ -54,15 +54,15 @@ limitations under the License.
           </ng-pluralize>
           <span ng-if="::ctrl.replicationController.pods.pending"
               class="kd-replicase-card-pods-stat kd-comma-separated-item">
-            {{::ctrl.replicationController.pods.pending}} pending<!-- Collapse whitespace
+            {{::ctrl.replicationController.pods.pending}} {{ "pending" | translate }}<!-- Collapse whitespace
           --></span>
           <span ng-if="::ctrl.replicationController.pods.failed"
               class="kd-replicase-card-pods-stat kd-comma-separated-item">
-            {{::ctrl.replicationController.pods.failed}} failed<!-- Collapse whitespace
+            {{::ctrl.replicationController.pods.failed}} {{ "failed" | translate }}<!-- Collapse whitespace
           --></span>
           <span ng-if="!ctrl.areDesiredPodsRunning()"
                 class="kd-replicase-card-pods-stat kd-comma-separated-item">
-            {{::ctrl.replicationController.pods.desired}} desired
+            {{::ctrl.replicationController.pods.desired}} {{ "desired" | translate }}
           </span>
         </span>
         <logs-menu flex="40" namespace="::ctrl.replicationController.namespace"
@@ -73,12 +73,12 @@ limitations under the License.
       <div layout="row" layout-wrap>
         <div ng-if="::ctrl.replicationController.description" flex="100" layout="column"
             class="kd-replicationcontroller-card-section">
-          <span flex class="kd-replicationcontroller-card-section-title">Description</span>
+          <span flex class="kd-replicationcontroller-card-section-title">{{ "Description" | translate }}</span>
           <div flex class="kd-replicationcontroller-card-description">{{::ctrl.replicationController.description}}</div>
         </div>
 
         <div flex="60" layout="column" class="kd-replicationcontroller-card-section">
-          <span class="kd-replicationcontroller-card-section-title">Image</span>
+          <span class="kd-replicationcontroller-card-section-title">{{ "Image" | translate }}</span>
           <div ng-repeat="image in ::ctrl.replicationController.containerImages track by $index"
                class="kd-replicationcontroller-card-section-image">
             <kd-middle-ellipsis display-string="{{::image}}"></kd-middle-ellipsis>
@@ -86,35 +86,35 @@ limitations under the License.
         </div>
 
         <div flex="40" layout="column" class="kd-replicationcontroller-card-section">
-          <span flex="initial" class="kd-replicationcontroller-card-section-title">Age</span>
+          <span flex="initial" class="kd-replicationcontroller-card-section-title">{{ "Age" | translate }}</span>
           <span flex="nogrow">
             {{::ctrl.replicationController.creationTime | relativeTime}}
             <md-tooltip>
-              Created at {{::ctrl.replicationController.creationTime | date:'short'}}
+              {{ "Created at" | translate }} {{::ctrl.replicationController.creationTime | date:'short'}}
             </md-tooltip>
           </span>
         </div>
 
         <div flex="60" layout="column" class="kd-replicationcontroller-card-section">
-          <span flex="initial" class="kd-replicationcontroller-card-section-title">Internal endpoint</span>
+          <span flex="initial" class="kd-replicationcontroller-card-section-title">{{ "Internal endpoint" | translate }}</span>
           <div flex>
             <div ng-repeat="endpoint in ::ctrl.replicationController.internalEndpoints track by $index">
               <kd-service-endpoint endpoint="::endpoint"></kd-service-endpoint>
             </div>
             <div ng-if="::!ctrl.replicationController.internalEndpoints.length">
-              none
+              {{ "none" | translate }}
             </div>
           </div>
         </div>
 
         <div flex="40" layout="column" class="kd-replicationcontroller-card-section">
-          <span flex="initial" class="kd-replicationcontroller-card-section-title">External endpoint</span>
+          <span flex="initial" class="kd-replicationcontroller-card-section-title">{{ "External endpoint" | translate }}</span>
           <div flex>
             <div ng-repeat="endpoint in ::ctrl.replicationController.externalEndpoints track by $index">
               <kd-service-endpoint endpoint="::endpoint"></kd-service-endpoint>
             </div>
             <div ng-if="::!ctrl.replicationController.externalEndpoints.length">
-              none
+              {{ "none" | translate }}
             </div>
           </div>
         </div>

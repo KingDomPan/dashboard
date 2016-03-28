@@ -21,12 +21,16 @@ export default class ChromeController {
   /**
    * @ngInject
    */
-  constructor() {
+  constructor($translate) {
     /**
      * By default this is true to show loading for the first page.
      * @export {boolean}
      */
     this.showLoadingSpinner = true;
+
+    this.translate = $translate;
+    this.selectedLanguage = '';
+    this.languages = ['en', 'cn'];
   }
 
   /**
@@ -34,7 +38,6 @@ export default class ChromeController {
    */
   registerStateChangeListeners(scope) {
     scope.$on('$stateChangeStart', () => { this.showLoadingSpinner = true; });
-
     scope.$on('$stateChangeError', this.hideSpinner_.bind(this));
     scope.$on('$stateChangeSuccess', this.hideSpinner_.bind(this));
   }
@@ -43,4 +46,21 @@ export default class ChromeController {
    * @private
    */
   hideSpinner_() { this.showLoadingSpinner = false; }
+
+  switchLanguage(e) {
+    this.selectedLanguage = e.target.textContent || e.target.text || '';
+    this.setLanguage(this.selectedLanguage);
+  }
+
+  setLanguage(lang) {
+    this.selectedLanguage = lang;
+    this.translate.use(lang);
+  }
+
+  registerLanguage() {
+    var key = this.translate.storageKey(),
+      storage = this.translate.storage();
+    console.log(storage.get(key));
+    storage && storage.get(key) && (this.setLanguage(storage.get(key) || this.translate.preferredLanguage()));
+  }
 }

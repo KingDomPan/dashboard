@@ -33,6 +33,9 @@ export default function chromeDirective() {
      * @param {!angular.Attributes} attrs
      * @param {!ChromeController} ctrl
      */
-    link: function(scope, elem, attrs, ctrl) { ctrl.registerStateChangeListeners(scope); },
+    link: function(scope, elem, attrs, ctrl) {
+      ctrl.registerStateChangeListeners(scope);
+      ctrl.registerLanguage();
+    },
   };
 }

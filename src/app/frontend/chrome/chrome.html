@@ -23,7 +23,15 @@ limitations under the License.
       <h2>
         <span>kubernetes</span>
       </h2>
-      <div flex ui-view="toolbar"></div>
+      <div flex ui-view="toolbar">
+      </div>
+      <div class="kd-toolbar-language">
+        <md-input-container>
+          <md-select ng-model="ctrl.selectedLanguage" placeholder="语言切换" required>
+            <md-option ng-value="language" ng-repeat="language in ctrl.languages" ng-click="ctrl.switchLanguage($event)">{{ language }}</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
     </div>
   </md-toolbar>
   <div class="kd-app-content-wrapper" ng-switch="ctrl.showLoadingSpinner">

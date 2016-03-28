@@ -84,3 +84,14 @@ a {
 [role='tabpanel'] {
   transition: none;
 }
+
+.kd-toolbar-language {
+  width: 120px;
+  position: fixed;
+  bottom: -2px;
+  right: 12px;
+  span {
+    color: #4A90E2;
+    font-size: 16px;
+  }
+}

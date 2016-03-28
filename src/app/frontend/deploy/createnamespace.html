@@ -16,26 +16,26 @@ limitations under the License.
 
 <md-dialog aria-label="Create a new namespace" layout="column">
   <md-dialog-content layout-padding>
-    <h4 class="md-title" >Create a new namespace</h4>
-    <div>The new namespace will be added to the cluster.</div>
+    <h4 class="md-title" >{{ "Create a new namespace" | translate }}</h4>
+    <div>{{ "The new namespace will be added to the cluster" | translate }}</div>
     <!-- TODO(maciaszczykm): Missing detailed cluster info. -->
     <form name="ctrl.namespaceForm" ng-submit="ctrl.createNamespace()"
           novalidate>
       <md-input-container class="md-block">
-        <label>Namespace name</label>
+        <label>{{ "Namespace name" | translate }}</label>
         <input name="namespace" ng-model="ctrl.namespace"
             md-maxlength="{{ctrl.namespaceMaxLength}}"
             ng-pattern="ctrl.namespacePattern"
             required>
         <div ng-messages="ctrl.namespaceForm.namespace.$error">
-            <div ng-message="pattern">Name must be alphanumeric and may contain dashes</div>
-            <div ng-message="md-maxlength">Name is too long</div>
-            <div ng-message="required">Name is required</div>
+            <div ng-message="pattern">{{ "Name must be alphanumeric and may contain dashes" | translate }}</div>
+            <div ng-message="md-maxlength">{{ "Name is too long" | translate }}</div>
+            <div ng-message="required">{{ "Name is required" | translate }}</div>
         </div>
       </md-input-container>
       <md-dialog-actions layout="row">
-        <md-button ng-disabled="ctrl.isDisabled()" class="md-primary" type="submit">OK</md-button>
-        <md-button ng-click="ctrl.cancel()">Cancel</md-button>
+        <md-button ng-disabled="ctrl.isDisabled()" class="md-primary" type="submit">{{ "OK" | translate }}</md-button>
+        <md-button ng-click="ctrl.cancel()">{{ "Cancel" | translate }}</md-button>
       </md-dialog-actions>
     </form>
   </md-dialog-content>

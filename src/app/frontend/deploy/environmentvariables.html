@@ -14,27 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<div class="kd-environment-variables-title md-body-2">Environment variables</div>
+<div class="kd-environment-variables-title md-body-2">{{ "Environment variables" | translate }}</div>
 <div ng-repeat="variable in ctrl.variables">
   <ng-form name="variablesForm" layout="row">
     <md-input-container flex class="kd-deploy-input-row">
-      <label>Name</label>
+      <label>{{ "Name" | translate }}</label>
       <input ng-model="variable.name" name="name" ng-change="ctrl.addVariableIfNeeed()"
           ng-pattern="ctrl.namePattern">
       <ng-messages for="variablesForm.name.$error" role="alert" multiple>
-        <ng-message when="pattern">Variable name must be a valid C identifier.</ng-message>
+        <ng-message when="pattern">{{ "Variable name must be a valid C identifier" | translate }}</ng-message>
       </ng-messages>
     </md-input-container>
     <div flex="5"></div>
     <md-input-container flex class="kd-deploy-input-row">
-      <label>Value</label>
+      <label>{{ "Value" | translate }}</label>
       <input ng-model="variable.value" name="value">
     </md-input-container>
     <div flex="10">
       <md-button type="button" ng-if="ctrl.isRemovable($index)"
                  ng-click="ctrl.remove($index)"
                  class="material-icons md-icon-button">
-        delete
+        {{ "delete" | translate }}
       </md-button>
     </div>
   </ng-form>

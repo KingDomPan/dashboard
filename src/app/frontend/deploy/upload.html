@@ -18,11 +18,11 @@ limitations under the License.
   <div layout="row" layout-align="space-between start">
     <div flex>
       <md-input-container class="md-block" md-is-error="ctrl.isFileNameError()">
-        <label>YAML or JSON file</label>
+        <label>{{ "YAML or JSON file" | translate }}</label>
         <!--TODO: Browse file on focus doesn't work in Firefox. It is to be investigated.-->
         <input ng-model="ctrl.file.name" ng-focus="ctrl.browseFile()" ng-readonly="true" name="fileName" required/>
           <ng-messages for="ctrl.form.fileName.$error" role="alert" multiple>
-            <ng-message when="required">File is required.</ng-message>
+            <ng-message when="required">{{ "File is required" | translate }}</ng-message>
             </ng-message>
           </ng-messages>
       </md-input-container>
@@ -37,7 +37,7 @@ limitations under the License.
     <input type="file" style="display:none" kd-file-reader ng-model="ctrl.file">
   </div>
   <kd-user-help>
-    Select a YAML or JSON file, specifying the resources to deploy.
-    <a href="http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl_create.html" target="_blank">Learn more</a>
+    {{ "Select a YAML or JSON file, specifying the resources to deploy" | translate }}
+    <a href="http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl_create.html" target="_blank">{{ "Learn more" | translate }}</a>
   </kd-user-help>
 </kd-help-section>

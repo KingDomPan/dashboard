@@ -21,6 +21,7 @@ import deployModule from './deploy/deploy_module';
 import errorModule from './error/error_module';
 import indexConfig from './index_config';
 import routeConfig from './index_route';
+import i18nConfig from './index_i18n';
 import logsModule from './logs/logs_module';
 import replicationControllerDetailModule from './replicationcontrollerdetail/replicationcontrollerdetail_module';
 import replicationControllerListModule from './replicationcontrollerlist/replicationcontrollerlist_module';
@@ -36,6 +37,8 @@ export default angular
           'ngResource',
           'ngSanitize',
           'ui.router',
+          'ngCookies',
+          'pascalprecht.translate',
           chromeModule.name,
           deployModule.name,
           errorModule.name,
@@ -44,4 +47,5 @@ export default angular
           replicationControllerListModule.name,
         ])
     .config(indexConfig)
-    .config(routeConfig);
+    .config(routeConfig)
+    .config(i18nConfig);

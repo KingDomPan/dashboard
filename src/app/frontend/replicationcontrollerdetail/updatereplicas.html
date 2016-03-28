@@ -16,22 +16,22 @@ limitations under the License.
 
 <md-dialog aria-label="Create a new namespace" layout="column">
   <md-dialog-content layout-padding>
-    <h4 class="md-title">Set desired number of pods</h4>
+    <h4 class="md-title">{{ "Set desired number of pods" | translate }}</h4>
     <div>
-      Replication controller {{ctrl.replicationController}} will be updated to reflect the desired count.<br/>
+      Replication controller {{ctrl.replicationController}} {{ "will be updated to reflect the desired count" | translate }}.<br/>
       <span class="kd-updatereplicas-pod-status">
-        Current status: {{ctrl.currentPods}}
-        created, {{ctrl.desiredPods}} desired
+        {{ "Current status" | translate }} : {{ctrl.currentPods}}
+        {{ "created" | translate }} , {{ctrl.desiredPods}} {{ "desired" | translate }}
       </span>
     </div>
     <form ng-submit="ctrl.updateReplicas()">
       <md-input-container class="md-block">
-        <label>Number of pods</label>
+        <label>{{ "Number of pods" | translate }}</label>
         <input type="number" min="1" ng-model="ctrl.replicas" required>
       </md-input-container>
       <md-dialog-actions layout="row">
-        <md-button class="md-primary" ng-click="ctrl.cancel()">Cancel</md-button>
-        <md-button class="md-primary" type="submit">OK</md-button>
+        <md-button class="md-primary" ng-click="ctrl.cancel()">{{ "Cancel" | translate }}</md-button>
+        <md-button class="md-primary" type="submit">{{ "OK" | translate }}</md-button>
       </md-dialog-actions>
     </form>
   </md-dialog-content>

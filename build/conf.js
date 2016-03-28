@@ -45,7 +45,7 @@ export default {
     /**
     * Address for the Kubernetes API server.
     */
-    apiServerHost: 'http://localhost:8080',
+    apiServerHost: 'http://172.28.1.104:8080',
     /**
      * Address for the Heapster API server. If blank, the dashboard
      * will attempt to connect to Heapster via a service proxy.

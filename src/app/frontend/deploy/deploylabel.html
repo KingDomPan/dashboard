@@ -19,7 +19,7 @@ limitations under the License.
     <input name="key" ng-model="labelCtrl.label.key" ng-change="labelCtrl.check(labelForm)"
            placeholder="{{labelCtrl.label.key}}" ng-disabled="!labelCtrl.label.editable">
     <ng-messages for="labelForm.key.$error" ng-if="labelForm.key.$invalid">
-      <ng-message when="unique">{{labelCtrl.label.key}} is not unique.</ng-message>
+      <ng-message when="unique">{{labelCtrl.label.key}} {{ "is not unique" | translate }}.</ng-message>
     </ng-messages>
   </md-input-container>
   <p flex="5"></p>
@@ -31,6 +31,6 @@ limitations under the License.
   </md-input-container>
   <md-button type="button" ng-show="labelCtrl.isRemovable()"
              ng-click="labelCtrl.deleteLabel()"
-             class="material-icons md-icon-button">delete
+             class="material-icons md-icon-button">{{ "delete" | translate }}
   </md-button>
 </ng-form>
